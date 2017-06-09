@@ -1,0 +1,54 @@
+<h2>Tabelle:</h2>
+<script>
+    {{! 3 Brackets for avoid escaping }}
+    var data_json = {{{data_json}}};
+</script>
+<table cellpadding="3" cellspacing="0" border="1" style="">
+    <thead>
+    <tr>
+        <th>dump</th>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{# data }}
+    {{!# rows }}
+        <tr>
+            <td colspan="1">
+                <pre>{{ dump }}</pre>
+            </td>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{age}}</td>
+            <td class="details"><button onclick="details({{index}});">+</button></td>
+        </tr>
+    {{/ data }}
+    {{^ data }}
+        <tr>
+            <td colspan="10"> No Entries found.</td>
+        </tr>{{/data}}
+    </tbody>
+    {{!/ rows }}
+</table>
+<tfoot>
+<tr>
+    <td colspan="10">
+        {{# data_info}}
+            {{^ count }}
+                0 Entries found.
+            {{/count}}
+            {{# count }}
+                {{# one }}
+                    {{ count }} Entry found.
+                {{/one}}
+                {{^ one }}
+                    {{ count }} Entries found.
+                {{/one}}
+            {{/count}}
+        {{/ data_info }}
+    </td>
+</tr>
+</tfoot>

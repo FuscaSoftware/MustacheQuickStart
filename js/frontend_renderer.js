@@ -14,3 +14,11 @@ function register_template(name, url) {
         });
     }
 }
+function details(index) {
+    var html, index2, data;
+    index2 = index + 1;
+    data = {data: data_json[index]};
+    html = Handlebars.template.details(data);
+    // html = data.birthday;
+    $('table tr:nth-child('+index2+') td.details').html(html);
+}
