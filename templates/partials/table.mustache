@@ -3,7 +3,7 @@
     {{! 3 Brackets for avoid escaping }}
     var data_json = {{{data_json}}};
 </script>
-<table cellpadding="3" cellspacing="0" border="1" style="">
+<table class="table" cellpadding="3" cellspacing="0" border="1" style="">
     <thead>
     <tr>
         <th>dump</th>
@@ -23,7 +23,9 @@
             <td>{{id}}</td>
             <td>{{name}}</td>
             <td>{{age}}</td>
-            <td class="details"><button onclick="details({{index}});">+</button></td>
+            <td class="details">
+                <button onclick="details({{index}});">+</button>
+            </td>
         </tr>
     {{/ data }}
     {{^ data }}
