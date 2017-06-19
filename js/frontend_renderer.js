@@ -14,6 +14,20 @@ function register_template(name, url) {
         });
     }
 }
+function register_partial(name, url) {
+    if (Handlebars === undefined) {
+        console.log("Handlebars not loaded yet");
+    }
+    $.get({
+        url: url,
+        success: function (data) {
+            Handlebars.registerPartial(name, data);
+        },
+        error: function (data) {
+            console.log("Error requesting Template: "+ url);
+        }
+    });
+}
 function details(index) {
     var html, index2, data;
     index2 = index + 1;
